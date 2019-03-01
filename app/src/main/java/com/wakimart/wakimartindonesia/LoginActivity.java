@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                             loadingBar.setVisibility(View.GONE);
                         }
                         SharedPreferenceUtils.removeAllPrefs(getApplicationContext());
-                        Toast.makeText(getApplicationContext(), "Login Fail", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Login atau password anda salah", Toast.LENGTH_LONG).show();
                     }
                 });
     }

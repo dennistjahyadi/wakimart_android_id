@@ -17,7 +17,8 @@ import java.util.Map;
 
 public class Utils {
 
-    public static final String domain = "http://192.168.100.12/wakimart/public";
+    public static final String domain = "http://192.168.100.12/wakimart/public"; // localhost
+//  public static final String domain = "http://wakimart.com/id"; // server
 
     public static final String API_URL = domain+"/api/";
 
