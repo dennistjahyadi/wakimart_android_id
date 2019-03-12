@@ -2,6 +2,7 @@ package com.wakimart.wakimartindonesia;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvSubTitle, tvMemberCardName, tvMemberCardCode;
-    private Button btnAdvantage, btnLogout;
+    private Button btnLogout, btnVoucher, btnWebsite, btnPromo, btnPriceList,btnVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
         tvSubTitle = findViewById(R.id.tvSubTitle);
         tvMemberCardCode = findViewById(R.id.tvMemberCardCode);
         tvMemberCardName = findViewById(R.id.tvMemberCardName);
-        btnAdvantage = findViewById(R.id.btnAdvantage);
+        btnVoucher = findViewById(R.id.btnVoucher);
+        btnWebsite = findViewById(R.id.btnWebsite);
+        btnPromo = findViewById(R.id.btnPromo);
+        btnPriceList = findViewById(R.id.btnPriceList);
+        btnVideo = findViewById(R.id.btnVideo);
         btnLogout = findViewById(R.id.btnLogout);
 
         String userData = SharedPreferenceUtils.getPrefs(getApplicationContext()).getString(SharedPreferenceUtils.PREFERENCES_USER_DATA, "");
@@ -52,14 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
-        btnAdvantage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),AdvantageActivity.class);
-                startActivity(i);
-            }
-        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +80,22 @@ public class MainActivity extends AppCompatActivity {
                 // Create the AlertDialog object and return it
                 builder.create();
                 builder.show();
+            }
+        });
+
+        btnWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Utils.wakimartWebsite));
+                startActivity(browserIntent);
+            }
+        });
+
+        btnVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), VideoListActivity.class);
+                startActivity(i);
             }
         });
     }

@@ -22,6 +22,8 @@ public class Utils {
 
     public static final String API_URL = domain+"/api/";
 
+    public static final String wakimartWebsite = "https://wakimart.com/id";
+
     public static final Integer INDONESIA_COUNTRY_ID = 102;
 
     public static Map<String, Object> toMap(JSONObject object) throws JSONException {
